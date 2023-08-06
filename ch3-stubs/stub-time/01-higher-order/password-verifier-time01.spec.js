@@ -21,7 +21,7 @@ describe('verifier', () => {
   });
 
   describe('currying', () => {
-    describe('sending only the frist two parameters', () => {
+    describe('sending only the first two parameters', () => {
       it('returns a curried function that takes the last one', () => {
         const onlyInputFn = verify([], () => SATURDAY);
 

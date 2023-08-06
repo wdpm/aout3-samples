@@ -23,8 +23,9 @@ describe("trigger", () => {
 });
 
 describe("makePerson", () => {
-  it("createsperson given passed in values", () => {
+  it("creates person given passed in values", () => {
     const result = trust.makePerson("name", 1);
+    // 这里两行expect是等价的，因此可以放在一个测试单元内
     expect(result.name).toBe("name");
     expect(result.age).toBe(1);
   });
@@ -34,6 +35,8 @@ describe("makeGreeting", () => {
   it("returns correct greeting for name", () => {
     const name = "abc";
     const result = trust.makeGreeting(name);
+    // !Avoid dynamically creating the expected value in your asserts, use hardcoded values when possible.
+    // not recommended
     expect(result).toBe("hello" + name); // bug in the test - expected to fail
   });
 
@@ -44,6 +47,7 @@ describe("makeGreeting", () => {
   });
 });
 
+// using for loop in an unit of test is not recommended
 describe("isName", () => {
   const namesToTest = ["firstOnly", "first second", ""];
 

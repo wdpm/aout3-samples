@@ -29,7 +29,7 @@ describe("anti pattern on the assert", () => {
       const spy = subscribeSpyTo(pizzaCookBook$());
       flush();
       expect(spy.getValues()).toEqual(ingredients.map((i) => i.name));
-      //this assert is tighly coupled to implementation logic
+      //this assert is tightly coupled to implementation logic
     })
   );
 });

@@ -11,6 +11,7 @@ const verifyPassword = (input, rules) => {
   return [];
 };
 
+// 扩展参数为currentDay变量，推荐
 const verifyPassword2 = (input, rules, currentDay) => {
   if ([SATURDAY, SUNDAY].includes(currentDay)) {
     throw Error("It's the weekend!");
@@ -20,6 +21,7 @@ const verifyPassword2 = (input, rules, currentDay) => {
   return [];
 };
 
+// 扩展参数为getDayFn函数，推荐
 const verifyPassword3 = (input, rules, getDayFn) => {
   const dayOfWeek = getDayFn();
   if ([SATURDAY, SUNDAY].includes(dayOfWeek)) {

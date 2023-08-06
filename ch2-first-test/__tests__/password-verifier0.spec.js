@@ -15,6 +15,7 @@ test('v1.1 verifyPassword, given a failing rule, returns errors', () => {
   expect(errors[0]).toContain('fake reason');
 });
 
+// 这里将SUT（verifyPassword）提取到describe层级
 describe('v1.2: verifyPassword', () => {
   test('given a failing rule, returns errors', () => {
     const fakeRule = input =>
@@ -26,6 +27,7 @@ describe('v1.2: verifyPassword', () => {
   });
 });
 
+// 2层嵌套
 describe('v1.3: verifyPassword', () => {
   describe('with a failing rule', () => {
     test('returns errors', () => {
@@ -40,6 +42,7 @@ describe('v1.3: verifyPassword', () => {
   });
 });
 
+// 提取公用的变量
 describe('v1.4: verifyPassword', () => {
   describe('with a failing rule', () => {
     const fakeRule = input => ({
@@ -54,6 +57,7 @@ describe('v1.4: verifyPassword', () => {
   });
 });
 
+// test -> it for better naming semantics
 describe('v1.5: verifyPassword', () => {
   describe('with a failing rule', () => {
     it('returns errors', () => {

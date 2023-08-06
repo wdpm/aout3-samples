@@ -12,7 +12,10 @@ describe("Website alive checking", () => {
 
   test("When website fetch content does not match, returns false", (done) => {
     samples.processFetchSuccess("text not on the website", (err, result) => {
-      expect(err.message).toBe("missing text");
+      // err is null means the network fetch is ok
+      expect(err).toBeNull();
+      expect(result.success).toBe(false);
+      expect(result.status).toBe("missing text");
       done();
     });
   });

@@ -1,5 +1,6 @@
 const SUNDAY = 0; const MONDAY = 1; const SATURDAY = 6;
 class PasswordVerifier {
+  // constructor inject dependencies
   constructor (rules, timeProvider) {
     this.rules = rules;
     this.timeProvider = timeProvider;

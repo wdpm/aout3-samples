@@ -8,6 +8,7 @@ const makeVerifier = (rules, timeProvider) => {
 
 describe('verifier', () => {
   test('on weekends, throws exceptions, ctor function', () => {
+    // 完全没必要使用框架特定的语法功能，会增加复杂度，就使用纯函数就行
     const stubGetDayFn = jest.fn(() => SUNDAY);
     const verifier = makeVerifier([], { getDay: stubGetDayFn });
 

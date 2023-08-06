@@ -3,14 +3,14 @@ const fetch = require("node-fetch");
 //Entry Point
 const isWebsiteAlive = (callback) => {
   fetch("http://example.com")
-    .then(throwOnInvalidResponse)
-    .then((resp) => resp.text())
-    .then((text) => {
-      processFetchSuccess(text, callback);
-    })
-    .catch((err) => {
-      processFetchError(err, callback);
-    });
+      .then(throwOnInvalidResponse)
+      .then((resp) => resp.text())
+      .then((text) => {
+        processFetchSuccess(text, callback);
+      })
+      .catch((err) => {
+        processFetchError(err, callback);
+      });
 };
 
 const throwOnInvalidResponse = (resp) => {
@@ -23,15 +23,15 @@ const throwOnInvalidResponse = (resp) => {
 //Entry Point
 const processFetchSuccess = (text, callback) => {
   if (text.includes("illustrative")) {
-    callback({ success: true, status: "ok" });
+    callback(null, {success: true, status: "ok"});
   } else {
-    callback({ success: false, status: "missing text" });
+    callback(null, {success: false, status: "missing text"});
   }
 };
 
 //Entry Point
 const processFetchError = (err, callback) => {
-  callback({ success: false, status: err });
+  callback(err, {success: false, status: err});
 };
 
 module.exports = {

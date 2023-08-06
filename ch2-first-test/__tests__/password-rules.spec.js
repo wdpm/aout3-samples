@@ -1,5 +1,6 @@
-const { oneUpperCaseRule } = require('../password-rules');
+const {oneUpperCaseRule} = require('../password-rules');
 
+// v0 独立测试
 describe('one uppercase rule', () => {
   test('given no uppercase, it fails', () => {
     const result = oneUpperCaseRule('abc');
@@ -15,7 +16,7 @@ describe('one uppercase rule', () => {
   });
 });
 
-//parameterized
+//parameterized 不推荐
 describe('v2 one uppercase rule', () => {
   test('given no uppercase, it fails', () => {
     const result = oneUpperCaseRule('abc');
@@ -31,29 +32,32 @@ describe('v2 one uppercase rule', () => {
   });
 });
 
-//parameterized
+//parameterized v3推荐
 describe('v3 one uppercase rule', () => {
-  test.each([['Abc', true],
+  test.each([
+    ['Abc', true],
     ['aBc', true],
-    ['abc', false]])
-  ('given %s, %s ', (input, expected) => {
+    ['abc', false]
+  ])('given %s, %s ', (input, expected) => {
     const result = oneUpperCaseRule(input);
     expect(result.passed).toEqual(expected);
   });
 });
 
+// 不推荐
 describe('v4 one uppercase rule, with the fancy jest table input', () => {
   test.each`
     input | expected
     ${'Abc'} | ${true}
     ${'aBc'} | ${true}
     ${'abc'} | ${false}
-    `('given $input', ({ input, expected }) => {
+    `('given $input', ({input, expected}) => {
     const result = oneUpperCaseRule(input);
     expect(result.passed).toEqual(expected);
   });
 });
 
+// v5 推荐
 describe('v5 one uppercase rule, with vanilla JS test.each', () => {
   const tests = {
     Abc: true,

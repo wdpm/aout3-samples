@@ -27,7 +27,8 @@ describe("index helper", () => {
 
     fireEvent.click(button);
 
-    //wait until true ot timeout in 1 sec
+    // wait until true or timeout in 1 sec
+    // exact : false means non-strict lookups
     expect(findByText(docElem, "clicked", { exact: false })).toBeTruthy();
   });
 });

@@ -16,50 +16,55 @@ describe("monkey patching ", () => {
   });
 });
 
-// describe("calculate1 - with jest", () => {
-//   beforeEach(()=>{
-//     // jest.clearAllTimers();
-//     jest.useFakeTimers();
-//   })
+describe("calculate1 - with jest", () => {
+  beforeEach(() => {
+    jest.clearAllTimers();
+    jest.useFakeTimers();
+  })
 
-//   test("fake timeout with callback", (done) => {
-//     Samples.calculate1(1, 2, (result) => {
-//       expect(result).toBe(3);
-//       done();
-//     });
-//     jest.advanceTimersToNextTimer();
-//   });
-// });
+  test("fake timeout with callback", (done) => {
+    Samples.calculate1(1, 2, (result) => {
+      expect(result).toBe(3);
+      done();
+    });
+    // Without advanceTimerstoNextTimer our fake setTimeout will be stuck forever
+    jest.advanceTimersToNextTimer();
+  }, 30000);
+});
 
-// describe("calculate2 - Promises", () => {
-//   // beforeEach(jest.clearAllTimers);
-//   beforeEach(jest.useFakeTimers);
+describe("calculate2 - Promises", () => {
+  beforeEach(() => {
+    jest.clearAllTimers();
+    jest.useFakeTimers();
+  })
 
-//   test("fake timeout with Promise", (done) => {
-//     Samples.calculate2(1, 2).then((result) => {
-//       expect(result).toBe(3);
-//       done()
-//     });
-//     jest.advanceTimersToNextTimer();
-//   });
-// });
+  test("fake timeout with Promise", (done) => {
+    Samples.calculate2(1, 2).then((result) => {
+      expect(result).toBe(3);
+      done()
+    });
+    jest.advanceTimersToNextTimer();
+  }, 30000);
+});
 
-// describe("calculate with intervals", () => {
-//   // beforeEach(jest.clearAllTimers);
-//   beforeEach(jest.useFakeTimers);
+describe("calculate with intervals", () => {
+  beforeEach(() => {
+    jest.clearAllTimers();
+    jest.useFakeTimers();
+  })
 
-//   test("calculate 4 with input and output functions for intervals", () => {
-//     const inputFn = () => ({ x: 1, y: 2 });
-//     const results = [];
-//     Samples.calculate4(inputFn, (result) => results.push(result));
+  test("calculate 4 with input and output functions for intervals", () => {
+    const inputFn = () => ({x: 1, y: 2});
+    const results = [];
+    Samples.calculate4(inputFn, (result) => results.push(result));
 
-//     jest.advanceTimersToNextTimer();
-//     jest.advanceTimersToNextTimer();
+    jest.advanceTimersToNextTimer();
+    jest.advanceTimersToNextTimer();
 
-//     expect(results[0]).toBe(3);
-//     expect(results[1]).toBe(3);
-//   });
-// });
+    expect(results[0]).toBe(3);
+    expect(results[1]).toBe(3);
+  });
+});
 
 // describe("calculate 5 with Observable intervals", () => {
 //   // beforeEach(jest.clearAllTimers);

@@ -5,7 +5,7 @@ export interface IUserDetails {
 
 export interface IUserCache {
   addUser(user: IUserDetails): void;
-  getUser(key: string);
+  getUser(key: string): IUserDetails;
   reset(): void;
 }
 

@@ -1,4 +1,3 @@
-
 const originalDependencies = {
   log: require('./complicated-logger'),
   configs: require('./configuration-service'),

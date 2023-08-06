@@ -1,8 +1,9 @@
 import {TimeProviderInterface} from "./time-provider-interface";
 import {PasswordVerifier, SUNDAY} from "./password-verifier-time03";
 
-class FakeTimeProvider implements TimeProviderInterface{
+class FakeTimeProvider implements TimeProviderInterface {
     fakeDay: number;
+
     getDay(): number {
         return this.fakeDay;
     }

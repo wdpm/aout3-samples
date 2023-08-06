@@ -6,16 +6,16 @@ const fakeDataFromModule = fakeData => {
   }));
 };
 
-jest.mock('../../my-data-module', () => ({
-  // injecting a stub helper function:
-  fakeDataFromModule: data => {
-    this.data = data;
-  },
-
-  getAllMachines: () => {
-    return this.data;
-  }
-}));
+// jest.mock('../../my-data-module', () => ({
+//   // injecting a stub helper function:
+//   fakeDataFromModule: data => {
+//     this.data = data;
+//   },
+//
+//   getAllMachines: () => {
+//     return this.data;
+//   }
+// }));
 
 describe('findRecentlyRebooted', () => {
   beforeEach(jest.resetModules);

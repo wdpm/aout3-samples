@@ -1,5 +1,7 @@
 const webverifier = require("./website-verifier");
 
+// functional test reduce many mock code lines
+
 const makeStubNetworkWithResult = (fakeResult) => {
   return {
     fetchUrlText: () => {
@@ -35,7 +37,7 @@ describe("unit test website verifier", () => {
     });
     try {
       await webverifier.isWebsiteAlive(stubSyncNetwork);
-      fail("promise.rejext expected");
+      fail("promise.reject expected");
     } catch (err) {
       expect(err.success).toBe(false);
       expect(err.status).toBe("some error");

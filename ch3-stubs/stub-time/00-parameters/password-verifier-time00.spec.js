@@ -2,8 +2,12 @@ const moment = require('moment');
 const { verifyPassword } = require('./password-verifier-time00');
 const { verifyPassword2 } = require('./password-verifier-time00');
 const { verifyPassword3 } = require('./password-verifier-time00');
-const SUNDAY = 0; const SATURDAY = 6; const MONDAY = 2;
+const SUNDAY = 0; const SATURDAY = 6;
+// it should be 1?
+const MONDAY = 2;
 
+
+// 诡异而脆弱的测试，根据是否为周末来运行测试
 describe('verifier', () => {
   const TODAY = moment().day();
 

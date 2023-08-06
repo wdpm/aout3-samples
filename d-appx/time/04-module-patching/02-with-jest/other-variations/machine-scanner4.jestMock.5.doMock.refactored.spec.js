@@ -1,9 +1,11 @@
+// helper function
 const fakeDataFromModule = fakeData => {
   jest.doMock('../../my-data-module', () => ({
     getAllMachines: () => fakeData
   }));
 };
 
+// helper function
 const requireAndCall_findRecentlyRebooted = (maxDays, fromDate) => {
   const { findRecentlyRebooted } = require('../../machine-scanner4');
   return findRecentlyRebooted(maxDays, fromDate);

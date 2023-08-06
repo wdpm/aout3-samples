@@ -32,7 +32,7 @@ describe("unit test website verifier", () => {
     });
     try {
       await webverifier.isWebsiteAlive(stubSyncNetwork);
-      fail("promise.rejext expected");
+      fail("promise.reject expected");
     } catch (err) {
       expect(err.success).toBe(false);
       expect(err.status).toBe("some network error");

@@ -1,5 +1,6 @@
 import {PasswordVerifier} from "./00-password-verifier";
 import {ILogger} from "./interfaces/logger";
+
 const {stringMatching} = expect;
 
 
@@ -35,7 +36,6 @@ describe('Late Faking', () => {
 
         verifier.verify('anything');
 
-        expect(mockLog.info).
-        toHaveBeenCalledWith(stringMatching(/PASS/));
+        expect(mockLog.info).toHaveBeenCalledWith(stringMatching(/PASS/));
     });
 });

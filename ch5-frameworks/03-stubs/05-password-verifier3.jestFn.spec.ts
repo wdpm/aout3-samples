@@ -8,8 +8,8 @@ describe("working with substitute part 2", () => {
     const stubMaintWindow: MaintenanceWindow = {
       isUnderMaintenance: jest
         .fn()
-        .mockImplementationOnce(() => true)
-        .mockImplementationOnce(() => false),
+        .mockImplementationOnce(() => true),
+        // .mockImplementationOnce(() => false),
     };
 
     const mockLog = Substitute.for<IComplicatedLogger>();

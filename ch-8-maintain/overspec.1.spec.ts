@@ -15,7 +15,9 @@ describe("verifier 4", () => {
 
       pv4.verify("abc");
 
-      //Don't do this
+      // Don't do this
+      // We’re proving something that isn’t an exit point.
+      // We’re proving that the code calls some internal function,
       expect(failedMock).toHaveBeenCalled();
     });
   });

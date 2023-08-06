@@ -1,5 +1,7 @@
-const { PasswordVerifier } = require("./00-password-verifier00");
+const {PasswordVerifier} = require("./00-password-verifier00");
 
+// I didn't call the fake object MockLogger or StubLogger, but FakeLogger.
+// This is because I can reuse this class in multiple different tests
 class FakeLogger {
   logged = "";
 

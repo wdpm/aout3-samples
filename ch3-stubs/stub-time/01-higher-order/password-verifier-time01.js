@@ -1,5 +1,11 @@
 const _ = require('lodash');
-const SUNDAY = 0; const MONDAY = 1; const TUESDAY = 2; const WEDNESDAY = 3; const THURSDAY = 4; const FRIDAY = 5; const SATURDAY = 6;
+const SUNDAY = 0;
+const MONDAY = 1;
+const TUESDAY = 2;
+const WEDNESDAY = 3;
+const THURSDAY = 4;
+const FRIDAY = 5;
+const SATURDAY = 6;
 
 // curried function
 const verify = (rules, dayOfWeekFn, input) => {
@@ -45,12 +51,12 @@ const Verifier = function (rules, dayOfWeekFn) {
 
 // class with constructor injection pattern
 class PasswordVerifier {
-  constructor (rules, dayOfWeekFn) {
+  constructor(rules, dayOfWeekFn) {
     this.rules = rules;
     this.dayOfWeek = dayOfWeekFn;
   }
 
-  verify (input) {
+  verify(input) {
     if ([SATURDAY, SUNDAY].includes(this.dayOfWeek())) {
       throw new Error("It's the weekend!");
     }

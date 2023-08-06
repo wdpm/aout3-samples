@@ -21,4 +21,5 @@ test("NETWORK REQUIRED2 (await): website with correct content, returns true", as
   const result = await samples.isWebsiteAliveWithPromises();
   expect(result.success).toBe(true);
   expect(result.status).toBe("ok");
+  //  no done()
 });

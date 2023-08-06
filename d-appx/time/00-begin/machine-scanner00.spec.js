@@ -16,4 +16,14 @@ describe('findRecentlyRebooted', () => {
 
     expect(result.length).toBe(0);
   });
+
+  test('given one machine within the threshold, it is returned', () => {
+    const DAYS_IN_MS = 1000 * 60 * 60 * 24;
+    const twoDaysAgo = Date.now() - (2 * DAYS_IN_MS);
+    const machines = [{ lastBootTime: twoDaysAgo, name: 'machine1' }];
+
+    const result = findRecentlyRebooted(machines, 3);
+
+    expect(result.length).toBe(1);
+  });
 });
